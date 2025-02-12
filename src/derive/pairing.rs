@@ -266,15 +266,15 @@ macro_rules! impl_gt {
         }
 
         // Serde support for $target.
-        #[cfg(feature = "derive_serde")]
-        impl ::serde::Serialize for $target {
-            fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-            where
-                S: ::serde::ser::Serializer,
-            {
-                let bytes = self.to_bytes();
-                serializer.serialize_bytes(&bytes)
-            }
-        }
+        // #[cfg(feature = "derive_serde")]
+        // impl ::serde::Serialize for $target {
+        //     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+        //     where
+        //         S: ::serde::ser::Serializer,
+        //     {
+        //         let bytes = self.to_bytes();
+        //         serializer.serialize_bytes(&bytes)
+        //     }
+        // }
     };
 }
