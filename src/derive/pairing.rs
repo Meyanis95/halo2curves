@@ -159,6 +159,11 @@ macro_rules! impl_gt {
                 use ff::Field;
                 $target(self.0.square())
             }
+
+            /// Doubles this group element.
+            pub fn get_base(&self) -> $base {
+                self.0
+            }
         }
 
         impl<'a> Neg for &'a $target {
@@ -264,17 +269,5 @@ macro_rules! impl_gt {
                 self.double()
             }
         }
-
-        // Serde support for $target.
-        // #[cfg(feature = "derive_serde")]
-        // impl ::serde::Serialize for $target {
-        //     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-        //     where
-        //         S: ::serde::ser::Serializer,
-        //     {
-        //         let bytes = self.to_bytes();
-        //         serializer.serialize_bytes(&bytes)
-        //     }
-        // }
     };
 }
