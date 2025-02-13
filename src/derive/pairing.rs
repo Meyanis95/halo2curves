@@ -160,7 +160,7 @@ macro_rules! impl_gt {
                 $target(self.0.square())
             }
 
-            /// Doubles this group element.
+            /// Return Gt base.
             pub fn get_base(&self) -> $base {
                 self.0
             }
